@@ -1,27 +1,22 @@
-# Hello World Sample
+# LilyPond Formatter
 
-This is a Hello World example that shows you how to use VS Code API.
+Provides formatting support for LilyPond files in VSCode.
+## Requirements
 
-Guide for this sample: https://code.visualstudio.com/api/get-started/your-first-extension.
+- (Optional but recommended): [VSLilyPond](https://marketplace.visualstudio.com/items?itemName=lhl2617.vslilypond) - Provides advanced LilyPond language support
 
-## Demo
 
-![demo](demo.gif)
+## Issues
 
-## VS Code API
+Please submit issues in the [GitHub repository](https://github.com/lhl2617/VSLilyPond-snippets).
 
-### `vscode` module
 
-- [`commands.registerCommand`](https://code.visualstudio.com/api/references/vscode-api#commands.registerCommand)
-- [`window.showInformationMessage`](https://code.visualstudio.com/api/references/vscode-api#window.showInformationMessage)
+## Contributing
 
-### Contribution Points
+* File bugs and/or feature requests in the [GitHub repository](https://github.com/lhl2617/VSLilyPond-snippets)
+* Pull requests are welcome in the [GitHub repository](https://github.com/lhl2617/VSLilyPond-snippets)
+* Buy me a Coffee ☕️ via [PayPal](https://paypal.me/lhl2617)
 
-- [`contributes.commands`](https://code.visualstudio.com/api/references/contribution-points#contributes.commands)
+## Acknowledgements
 
-## Running the Sample
-
-- Run `npm install` in terminal to install dependencies
-- Run the `Run Extension` target in the Debug View. This will:
-	- Start a task `npm: watch` to compile the code
-	- Run the extension in a new VS Code window
+Formatter is based on [python-ly](https://github.com/frescobaldi/python-ly), under the GPL license.
