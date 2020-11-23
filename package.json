@@ -5,6 +5,7 @@
 	"version": "0.0.1",
 	"publisher": "lhl2617",
 	"preview": true,
+	"icon": "assets/icon.png",
 	"repository": "https://github.com/lhl2617/lilypond-formatter",
 	"engines": {
 		"vscode": "^1.34.0"
