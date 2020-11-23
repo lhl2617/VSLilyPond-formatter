@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { checkLyInstallation, checkPythonInstallation, runReformat } from './lycheck';
+import { checkLyInstallation, checkPythonInstallation, runReformat } from './ly';
 import { getPythonPath } from './util';
 
 
