@@ -1,27 +1,19 @@
-# Hello World Sample
+# LilyPond Formatter
 
-This is a Hello World example that shows you how to use VS Code API.
+Provides `python-ly` formatting support for LilyPond files in VSCode.
+## Requirements
+- [`python-ly`](https://pypi.org/project/python-ly/)
+     - `python -m pip install python-ly`
+     - If your standard Python 3 installation is not `python`, please change it in the [Settings](./doc/settings);
+- (Optional but recommended): [VSLilyPond](https://marketplace.visualstudio.com/items?itemName=lhl2617.vslilypond) - Provides advanced LilyPond language support
 
-Guide for this sample: https://code.visualstudio.com/api/get-started/your-first-extension.
+## Issues
 
-## Demo
+Please submit issues in the [GitHub repository](https://github.com/lhl2617/VSLilyPond-formatter).
 
-![demo](demo.gif)
 
-## VS Code API
+## Contributing
 
-### `vscode` module
-
-- [`commands.registerCommand`](https://code.visualstudio.com/api/references/vscode-api#commands.registerCommand)
-- [`window.showInformationMessage`](https://code.visualstudio.com/api/references/vscode-api#window.showInformationMessage)
-
-### Contribution Points
-
-- [`contributes.commands`](https://code.visualstudio.com/api/references/contribution-points#contributes.commands)
-
-## Running the Sample
-
-- Run `npm install` in terminal to install dependencies
-- Run the `Run Extension` target in the Debug View. This will:
-	- Start a task `npm: watch` to compile the code
-	- Run the extension in a new VS Code window
+* File bugs and/or feature requests in the [GitHub repository](https://github.com/lhl2617/VSLilyPond-formatter)
+* Pull requests are welcome in the [GitHub repository](https://github.com/lhl2617/VSLilyPond-formatter)
+* Buy me a Coffee ☕️ via [PayPal](https://paypal.me/lhl2617)

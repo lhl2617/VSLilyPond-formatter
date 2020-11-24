@@ -5,6 +5,8 @@
 	"version": "0.0.1",
 	"publisher": "lhl2617",
 	"preview": true,
+	"license": "MIT",
+	"icon": "assets/icon.png",
 	"repository": "https://github.com/lhl2617/lilypond-formatter",
 	"engines": {
 		"vscode": "^1.34.0"
@@ -16,18 +18,46 @@
 		"onLanguage:lilypond"
 	],
 	"main": "./out/extension.js",
+	"contributes": {
+		"configuration": {
+			"title": "LilyPond Formatter",
+			"properties": {
+				"lilypondFormatter.general.pathToPython": {
+					"type": "string",
+					"default": "python",
+					"group": "General",
+					"description": "Path to `python` executable. Default (`python`) assumes python is in PATH variables.",
+					"scope": "resource"
+				},
+				"lilypondFormatter.general.reformatTimeout": {
+					"type": "number",
+					"default": 10000,
+					"group": "General",
+					"description": "Maximum timeout (in ms) for reformatting process.",
+					"scope": "resource"
+				}
+			}
+		}
+	},
 	"scripts": {
-		"vscode:prepublish": "npm run compile",
+		"vscode:prepublish": "npm run compile && npm run lint && npm run generateDocs",
 		"compile": "tsc -p ./",
-		"lint": "eslint . --ext .ts,.tsx",
-		"watch": "tsc -watch -p ./"
+		"watch": "tsc -watch -p ./",
+		"lint": "eslint src --ext ts",
+		"generateDocs": "ts-node ./src/docsGenerator/docsGenerator.ts"
 	},
 	"devDependencies": {
-		"@types/node": "^12.19.6",
-		"@types/vscode": "^1.51.0",
-		"@typescript-eslint/eslint-plugin": "^3.10.1",
-		"@typescript-eslint/parser": "^3.10.1",
-		"eslint": "^7.14.0",
+		"@types/command-exists": "^1.2.0",
+		"@types/glob": "^7.1.3",
+		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.34.0",
+		"@typescript-eslint/eslint-plugin": "^4.1.1",
+		"@typescript-eslint/parser": "^4.1.1",
+		"eslint": "^7.9.0",
+		"ts-node": "^9.0.0",
 		"typescript": "^4.0.2"
+	},
+	"dependencies": {
+		"command-exists": "^1.2.9"
 	}
 }
