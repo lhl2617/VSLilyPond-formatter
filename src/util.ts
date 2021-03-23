@@ -1,13 +1,15 @@
-import * as vscode from 'vscode';
+import * as vscode from "vscode"
 
 // get configuration for a document
 export const getConfiguration = (doc: vscode.TextDocument) => {
-    return vscode.workspace.getConfiguration(`lilypondFormatter`, doc);
-};
+  return vscode.workspace.getConfiguration(`lilypondFormatter`, doc)
+}
 
 export const getPythonPath = (doc: vscode.TextDocument) => {
-    const config = getConfiguration(doc);
-    return config?.general?.pathToPython ?? `python`;
-};
+  const config = getConfiguration(doc)
+  return config?.general?.pathToPython ?? `python`
+}
 
-export const outputChan = vscode.window.createOutputChannel(`VSLilyPond: Formatter`);
+export const outputChan = vscode.window.createOutputChannel(
+  `VSLilyPond: Formatter`
+)
