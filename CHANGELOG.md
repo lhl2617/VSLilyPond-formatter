@@ -1,6 +1,6 @@
 # Change Log
 
-## 0.1.1
+## 0.1.2
 - No extension changes (dev setup changes only)
 
 ## 0.1.0
