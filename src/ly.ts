@@ -1,9 +1,14 @@
 import * as commandExists from "command-exists"
 import * as vscode from "vscode"
-import { getConfiguration, outputChan } from "./util"
+import {
+  getConfiguration,
+  getExecutablePath,
+  getPythonPath,
+  outputChan,
+} from "./util"
 import * as cp from "child_process"
 
-export const checkPythonInstallation = (pythonPath: string) => {
+const checkPythonInstallation = (pythonPath: string) => {
   if (!commandExists.sync(pythonPath)) {
     throw new Error(`Python installation not found at \`${pythonPath}\``)
   }
@@ -21,20 +26,7 @@ export const checkLyInstallation = (pythonPath: string) => {
   }
 }
 
-export const runReformat = (
-  pythonPath: string,
-  doc: vscode.TextDocument
-): string => {
-  const config = getConfiguration(doc)
-  const timeout = config?.general?.reformatTimeout ?? 10000
-  const res = cp.spawnSync(
-    pythonPath,
-    [`-m`, `ly`, `indent; reformat`, doc.fileName],
-    { timeout: timeout }
-  )
-  outputChan.appendLine(
-    `[COMMAND]: ${pythonPath} -m ly "indent; reformat" ${doc.fileName}`
-  )
+const handleLyCommandOutput = (res: cp.SpawnSyncReturns<Buffer>): string => {
   if (res.error) {
     outputChan.appendLine(`[STDOUT]: ${res.stdout.toString()}`)
     outputChan.appendLine(`[STDERR]: ${res.stderr.toString()}`)
@@ -46,4 +38,50 @@ export const runReformat = (
     throw new Error(`Python-ly error. See output for "VSLilyPond: Formatter".`)
   }
   return res.stdout.toString()
+}
+
+const runReformatWithPython = (
+  pythonPath: string,
+  doc: vscode.TextDocument,
+  timeoutMS: number
+): string => {
+  outputChan.appendLine(
+    `[LOG]: Reformatting "${doc.fileName}" with "${pythonPath}", timeout: "${timeoutMS}ms"`
+  )
+  const res = cp.spawnSync(pythonPath, [`-m`, `ly`, `reformat`, doc.fileName], {
+    timeout: timeoutMS,
+  })
+  outputChan.appendLine(
+    `[COMMAND]: ${pythonPath} -m ly reformat ${doc.fileName}`
+  )
+  return handleLyCommandOutput(res)
+}
+
+const runReformatWithBundledPythonLy = (
+  executablePath: string,
+  doc: vscode.TextDocument,
+  timeoutMS: number
+): string => {
+  outputChan.appendLine(
+    `[LOG]: Reformatting "${doc.fileName}" with bundled "${executablePath}", timeout: "${timeoutMS}ms"`
+  )
+  const res = cp.spawnSync(executablePath, [`reformat`, doc.fileName], {
+    timeout: timeoutMS,
+  })
+  outputChan.appendLine(`[COMMAND]: ${executablePath} reformat ${doc.fileName}`)
+  return handleLyCommandOutput(res)
+}
+
+export const runReformat = (doc: vscode.TextDocument): string => {
+  const config = getConfiguration(doc)
+  const timeoutMS = config?.general?.reformatTimeout ?? 10000
+  if (config?.general?.useBundledPythonLy) {
+    const executablePath = getExecutablePath()
+    return runReformatWithBundledPythonLy(executablePath, doc, timeoutMS)
+  } else {
+    const pythonPath = getPythonPath(doc)
+    checkPythonInstallation(pythonPath)
+    checkLyInstallation(pythonPath)
+    return runReformatWithPython(pythonPath, doc, timeoutMS)
+  }
 }

@@ -1,6 +1,5 @@
 import * as vscode from "vscode"
-import { checkLyInstallation, checkPythonInstallation, runReformat } from "./ly"
-import { getPythonPath } from "./util"
+import { runReformat } from "./ly"
 
 const provider: vscode.DocumentFormattingEditProvider = {
   async provideDocumentFormattingEdits(
@@ -8,11 +7,8 @@ const provider: vscode.DocumentFormattingEditProvider = {
   ): Promise<vscode.TextEdit[]> {
     let edits: vscode.TextEdit[] = []
     try {
-      const pythonPath = getPythonPath(document)
-      checkPythonInstallation(pythonPath)
-      checkLyInstallation(pythonPath)
       await document.save()
-      const reformattedCode = runReformat(pythonPath, document)
+      const reformattedCode = runReformat(document)
       edits = [
         vscode.TextEdit.replace(
           new vscode.Range(

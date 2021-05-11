@@ -14,5 +14,5 @@ src/**
 ly/python-ly
 ly/build
 ly/build.py
-ly/.env
 ly/requirements.txt
+.env*
