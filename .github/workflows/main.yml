@@ -143,6 +143,8 @@ jobs:
         with:
           name: dist-macos
           path: ly/dist-macos
+      - name: List files recursively
+        run: ls -lR
       - name: Run prepublish
         run: npm run vscode:prepublish
 
