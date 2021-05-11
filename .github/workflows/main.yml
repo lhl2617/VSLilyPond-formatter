@@ -100,7 +100,7 @@ jobs:
         run: npm install
       - name: Get tag version
         id: tag
-        run: echo "::set-output name=tag::v$(jq -r '.version' package.json)"
+        run: echo "::set-output name=tag::$(jq -r '.version' package.json)"
       - name: Bump version and push tag
         uses: mathieudutour/github-tag-action@v5.5
         with:
