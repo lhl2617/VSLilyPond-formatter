@@ -127,7 +127,7 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: npm Install
+        run: npm install
       - name: Download artifact (linux)
         uses: actions/download-artifact@v2
         with:
