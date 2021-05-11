@@ -9,5 +9,10 @@ src/**
 **/*.ts
 *.vsix
 **/.prettierrc.json
+**/.eslintrc.json
 .gitattributes
-python-ly
+ly/python-ly
+ly/build
+ly/build.py
+ly/.env
+ly/requirements.txt
