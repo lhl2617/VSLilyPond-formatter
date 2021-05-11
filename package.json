@@ -2,7 +2,7 @@
   "name": "lilypond-formatter",
   "displayName": "LilyPond Formatter",
   "description": "LilyPond Formatter",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "publisher": "lhl2617",
   "preview": true,
   "license": "MIT",
@@ -22,29 +22,37 @@
     "configuration": {
       "title": "LilyPond Formatter",
       "properties": {
+        "lilypondFormatter.general.useBundledPythonLy": {
+          "type": "boolean",
+          "default": true,
+          "group": "General",
+          "description": "Use the bundled `python-ly` installation instead of the one installed in the Python installation pointed by `lilypondFormatter.general.pathToPython`",
+          "scope": "resource"
+        },
         "lilypondFormatter.general.pathToPython": {
           "type": "string",
           "default": "python",
           "group": "General",
-          "description": "Path to `python` executable. Default (`python`) assumes python is in PATH variables.",
-          "scope": "resource"
+          "description": "Path to `python` executable with `python-ly`. Effectual only if `lilypondFormatter.general.useBundledPythonLy` is set to false. Default (`python`) assumes python is available in the PATH variables.",
+          "scope": "resource" 
         },
         "lilypondFormatter.general.reformatTimeout": {
           "type": "number",
           "default": 10000,
           "group": "General",
-          "description": "Maximum timeout (in ms) for reformatting process.",
+          "description": "Maximum timeout (in ms) for the reformatting process.",
           "scope": "resource"
         }
       }
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile && npm run lint && npm run generateDocs",
+    "vscode:prepublish": "npm run bundle:check && npm run compile && npm run lint && npm run docs:gen",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "lint": "eslint src --ext ts",
-    "generateDocs": "ts-node ./src/docsGenerator/docsGenerator.ts"
+    "docs:gen": "ts-node ./src/docs-gen/main.ts",
+    "bundle:check": "ts-node ./src/bundle/check.ts"
   },
   "devDependencies": {
     "@types/command-exists": "^1.2.0",

@@ -1,6 +1,6 @@
 // RUN FROM ROOT DIRECTORY
-// Generates COMMANDS.md and SETTINGS.md
-// `npm run generateDocs`
+// Generates docs/COMMANDS.md and docs/SETTINGS.md
+// `npm run docs:gen`
 
 import * as fs from "fs"
 
