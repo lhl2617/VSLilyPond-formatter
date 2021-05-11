@@ -9,7 +9,7 @@
   "icon": "assets/icon.png",
   "repository": "https://github.com/lhl2617/VSLilyPond-formatter",
   "engines": {
-    "vscode": "^1.34.0"
+    "vscode": "^1.14.0"
   },
   "categories": [
     "Formatters"
@@ -48,16 +48,16 @@
   },
   "devDependencies": {
     "@types/command-exists": "^1.2.0",
-    "@types/node": "^14.14.34",
-    "@types/vscode": "^1.34.0",
-    "@typescript-eslint/eslint-plugin": "^4.17.0",
-    "@typescript-eslint/parser": "^4.17.0",
-    "eslint": "^7.22.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "prettier": "^2.2.1",
+    "@types/node": "^15.0.2",
+    "@types/vscode": "1.14.0",
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
+    "@typescript-eslint/parser": "^4.23.0",
+    "eslint": "^7.26.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.0",
     "ts-node": "^9.1.1",
-    "typescript": "^4.2.3",
-    "vsce": "^1.87.0"
+    "typescript": "^4.2.4",
+    "vsce": "^1.88.0"
   },
   "dependencies": {
     "command-exists": "^1.2.9"
