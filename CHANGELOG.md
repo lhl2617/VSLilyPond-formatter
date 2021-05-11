@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.1.3
+- Update dependencies
+- Lower minimum required VSCode version to 1.14.0
+
 ## 0.1.2
 - No extension changes (dev setup changes only)
 

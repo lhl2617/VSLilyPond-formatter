@@ -2,6 +2,7 @@
 
 Provides `python-ly` formatting support for LilyPond files in VSCode.
 ## Requirements
+- [VSCode](https://code.visualstudio.com/) 1.14.0 minimum
 - [`python-ly`](https://pypi.org/project/python-ly/)
      - `python -m pip install python-ly`
      - If your standard Python 3 installation is not `python`, please change it in the [Settings](./docs/SETTINGS.md);
