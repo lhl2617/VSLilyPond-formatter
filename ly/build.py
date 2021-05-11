@@ -2,6 +2,20 @@
 import os
 import subprocess
 import shutil
+import sys
+
+# maps from sys.platform to GH-Actions friendly folder
+# https://docs.python.org/3/library/sys.html#sys.platform
+PLATFORM_DICT = {
+    "linux": "linux",
+    "darwin": "macos",
+    "win32": "windows",
+}
+
+PLATFORM = PLATFORM_DICT.get(sys.platform)
+
+if PLATFORM is None:
+    raise ValueError(f"Unknown build sys.platform: {sys.platform}")
 
 LY_ROOT = os.path.dirname(os.path.realpath(__file__))
 PYTHON_LY_ROOT = os.path.join(LY_ROOT, "python-ly")
@@ -11,7 +25,7 @@ LY_BIN_PATH = os.path.join(LY_BIN_DIR, "ly")
 PYTHON_LY_BIN_PATH = os.path.join(PYTHON_LY_ROOT, "python-ly")
 
 BUILD_PATH = os.path.join(LY_ROOT, "build")
-DIST_PATH = os.path.join(LY_ROOT, "dist")
+DIST_PATH = os.path.join(LY_ROOT, f"dist-{PLATFORM}")
 
 if __name__ == "__main__":
     # Clean the build and dist paths if required
@@ -39,5 +53,6 @@ if __name__ == "__main__":
     # Clean the spec file
     os.remove(os.path.join(PYTHON_LY_ROOT, "python-ly.spec"))
 
-    print()
+    print("BUILT PATH:")
+    print(DIST_PATH)
     

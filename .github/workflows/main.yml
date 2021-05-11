@@ -86,11 +86,24 @@ jobs:
         run: |
           cd ly
           python build.py
-      - name: Upload artifact
+      - name: Upload artifact (linux)
+        if: ${{ matrix.os }} == 'ubuntu-latest'
         uses: actions/upload-artifact@v2
         with:
-          name: dist-${{ matrix.os }}
-          path: ly/dist
+          name: dist-linux
+          path: ly/dist-linux
+      - name: Upload artifact (windows)
+        if: ${{ matrix.os }} == 'windows-latest'
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist-windows
+          path: ly/dist-windows
+      - name: Upload artifact (macos)
+        if: ${{ matrix.os }} == 'macos-latest'
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist-macos
+          path: ly/dist-macos
 
   prepublish-test:
     runs-on: ubuntu-latest
