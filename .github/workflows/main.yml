@@ -131,17 +131,17 @@ jobs:
       - name: Download artifact (linux)
         uses: actions/download-artifact@v2
         with:
-          name: dist-ubuntu-latest
+          name: dist-linux
           path: ly/dist-linux
       - name: Download artifact (windows)
         uses: actions/download-artifact@v2
         with:
-          name: dist-windows-latest
+          name: dist-windows
           path: ly/dist-windows
       - name: Download artifact (macos)
         uses: actions/download-artifact@v2
         with:
-          name: dist-macos-latest
+          name: dist-macos
           path: ly/dist-macos
       - name: Run prepublish
         run: npm run vscode:prepublish
@@ -177,17 +177,17 @@ jobs:
       - name: Download artifact (linux)
         uses: actions/download-artifact@v2
         with:
-          name: dist-ubuntu-latest
+          name: dist-linux
           path: ly/dist-linux
       - name: Download artifact (windows)
         uses: actions/download-artifact@v2
         with:
-          name: dist-windows-latest
+          name: dist-windows
           path: ly/dist-windows
       - name: Download artifact (macos)
         uses: actions/download-artifact@v2
         with:
-          name: dist-macos-latest
+          name: dist-macos
           path: ly/dist-macos
       - name: Get tag version
         id: tag
