@@ -8,11 +8,39 @@ Provides `python-ly` formatting support for LilyPond files in VSCode.
      - If your standard Python 3 installation is not `python`, please change it in the [Settings](./docs/SETTINGS.md);
 - (Optional but recommended): [VSLilyPond](https://marketplace.visualstudio.com/items?itemName=lhl2617.vslilypond) - Provides advanced LilyPond language support
 
+## Development
+#### Requirements
+* [VSCode](https://code.visualstudio.com/)
+* `npm`
+* Python (Tested on 3.8)
+* `git` (>= 2.13)
+#### Setup
+- Clone repository with submodules
+  ```bash
+  git clone --recurse-submodules https://github.com/lhl2617/VSLilyPond-formatter
+  ```
+- Install `npm` dependencies
+  ```bash
+  npm i
+  ```
+- Install Python dependencies (Note that it is advisable to use a [Virtual Environment](https://docs.python.org/3/library/venv.html))
+  ```bash
+  python -m pip install -r ly/requirements.txt
+  ```
+- Build `python-ly` for your system
+  ```bash
+  python ly/build.py
+  ```
+- Hit `F5` to run an Extension Development Host.
+
+  See [here](https://code.visualstudio.com/api/get-started/your-first-extension) for a detailed extension development guide.
+
+#### Releasing
+Releasing is done automatically via GitHub Actions.
+
 ## Issues
 
 Please submit issues in the [GitHub repository](https://github.com/lhl2617/VSLilyPond-formatter).
-
-
 ## Contributing
 
 * File bugs and/or feature requests in the [GitHub repository](https://github.com/lhl2617/VSLilyPond-formatter)
