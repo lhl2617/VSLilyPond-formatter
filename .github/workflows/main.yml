@@ -22,7 +22,8 @@ jobs:
       - name: Install Dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: npm install
-      - name: Check version validity
+      - name: Run lint check
+        run: npm run lint
 
   check-version:
     # Ensures that the current version is later than the one on the marketplace
