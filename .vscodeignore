@@ -10,3 +10,4 @@ src/**
 *.vsix
 **/.prettierrc.json
 .gitattributes
+python-ly
