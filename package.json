@@ -2,7 +2,7 @@
   "name": "lilypond-formatter",
   "displayName": "LilyPond Formatter",
   "description": "LilyPond Formatter",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "publisher": "lhl2617",
   "preview": true,
   "license": "MIT",
