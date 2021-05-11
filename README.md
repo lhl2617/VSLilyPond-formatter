@@ -6,7 +6,7 @@ Provides `python-ly` formatting support for LilyPond files in VSCode.
 
 - [VSCode](https://code.visualstudio.com/) 1.14.0 minimum
 - (Optional but recommended): [VSLilyPond](https://marketplace.visualstudio.com/items?itemName=lhl2617.vslilypond) -- Provides advanced LilyPond language support
-- Optional:
+- Optional (for Linux, macOS and Windows users):
   - [`python-ly`](https://pypi.org/project/python-ly/)
     - Since `0.2.0`, `python-ly` is bundled in this extension.
     - If it doesn't work or if you wish to use your own installation, please install `python-ly` and change the [Settings](./docs/SETTINGS.md).
