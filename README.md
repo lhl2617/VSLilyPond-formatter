@@ -1,6 +1,11 @@
 # LilyPond Formatter
 
+[![Visual Studio Marketplace](https://vsmarketplacebadge.apphb.com/version-short/lhl2617.lilypond-formatter.svg)](https://marketplace.visualstudio.com/items?itemName=lhl2617.lilypond-formatter)
+[![Visual Studio Marketplace](https://vsmarketplacebadge.apphb.com/installs/lhl2617.lilypond-formatter.svg)](https://vsmarketplacebadge.apphb.com/installs/lhl2617.lilypond-formatter.svg)
+
 Provides `python-ly` formatting support for LilyPond files in VSCode.
+
+Included in the [VSLilyPond](https://marketplace.visualstudio.com/items?itemName=lhl2617.vslilypond) extension.
 
 ## Requirements
 
@@ -10,8 +15,18 @@ Provides `python-ly` formatting support for LilyPond files in VSCode.
   - [`python-ly`](https://pypi.org/project/python-ly/)
     - Since `0.2.0`, `python-ly` is bundled in this extension.
     - If it doesn't work or if you wish to use your own installation, please install `python-ly` and change the [Settings](./docs/SETTINGS.md).
-        - `python -m pip install python-ly`
-        - If your standard Python 3 installation is not `python`, please change it in the [Settings](./docs/SETTINGS.md)
+      - `python -m pip install python-ly`
+      - If your standard Python 3 installation is not `python`, please change it in the [Settings](./docs/SETTINGS.md)
+
+## Issues
+
+Please submit issues in the [GitHub repository](https://github.com/lhl2617/VSLilyPond-formatter).
+
+## Contributing
+
+- File bugs and/or feature requests in the [GitHub repository](https://github.com/lhl2617/VSLilyPond-formatter)
+- Pull requests are welcome in the [GitHub repository](https://github.com/lhl2617/VSLilyPond-formatter)
+- Buy me a Coffee ☕️ via [PayPal](https://paypal.me/lhl2617)
 
 ## Development
 
@@ -46,14 +61,4 @@ Provides `python-ly` formatting support for LilyPond files in VSCode.
 
 #### Releasing
 
-Releasing is done automatically via GitHub Actions.
-
-## Issues
-
-Please submit issues in the [GitHub repository](https://github.com/lhl2617/VSLilyPond-formatter).
-
-## Contributing
-
-- File bugs and/or feature requests in the [GitHub repository](https://github.com/lhl2617/VSLilyPond-formatter)
-- Pull requests are welcome in the [GitHub repository](https://github.com/lhl2617/VSLilyPond-formatter)
-- Buy me a Coffee ☕️ via [PayPal](https://paypal.me/lhl2617)
+Releasing is done automatically via GitHub Actions. Bump the version in `package.json` and update `CHANGELOG.md` before merging into the default branch.
