@@ -1,5 +1,8 @@
 # Change Log
 
+## 0.2.1
+- Update documentation
+
 ## 0.2.0
 - Bundle `python-ly@v0.9.7` for Linux, macOS and Windows.
 - :heavy_exclamation_mark: Breaking change :heavy_exclamation_mark: - This extension now uses a bundled version of `python-ly` by default.
