@@ -33,14 +33,14 @@
           "type": "string",
           "default": "python",
           "group": "General",
-          "description": "Path to `python` executable with `python-ly`. Effectual only if `lilypondFormatter.general.useBundledPythonLy` is set to false. Default (`python`) assumes python is in PATH variables.",
-          "scope": "resource"
+          "description": "Path to `python` executable with `python-ly`. Effectual only if `lilypondFormatter.general.useBundledPythonLy` is set to false. Default (`python`) assumes python is available in the PATH variables.",
+          "scope": "resource" 
         },
         "lilypondFormatter.general.reformatTimeout": {
           "type": "number",
           "default": 10000,
           "group": "General",
-          "description": "Maximum timeout (in ms) for reformatting process.",
+          "description": "Maximum timeout (in ms) for the reformatting process.",
           "scope": "resource"
         }
       }

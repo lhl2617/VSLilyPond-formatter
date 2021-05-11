@@ -14,7 +14,7 @@ Default value: `true`
 
 ### lilypondFormatter.general.pathToPython
 
-Path to `python` executable with `python-ly`. Effectual only if `lilypondFormatter.general.useBundledPythonLy` is set to false. Default (`python`) assumes python is in PATH variables.
+Path to `python` executable with `python-ly`. Effectual only if `lilypondFormatter.general.useBundledPythonLy` is set to false. Default (`python`) assumes python is available in the PATH variables.
 
 Type: `string`
 
@@ -22,7 +22,7 @@ Default value: `python`
 
 ### lilypondFormatter.general.reformatTimeout
 
-Maximum timeout (in ms) for reformatting process.
+Maximum timeout (in ms) for the reformatting process.
 
 Type: `number`
 
