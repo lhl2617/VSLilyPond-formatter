@@ -81,6 +81,7 @@ jobs:
     needs:
       - lint
       - check-version
+      - prepublish-test
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
