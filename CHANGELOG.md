@@ -1,5 +1,8 @@
 # Change Log
 
+## 0.2.0
+- Bundle `python-ly`
+
 ## 0.1.3
 - Update dependencies
 - Lower minimum required VSCode version to 1.14.0
