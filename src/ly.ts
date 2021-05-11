@@ -37,6 +37,7 @@ const handleLyCommandOutput = (res: cp.SpawnSyncReturns<Buffer>): string => {
     outputChan.appendLine(`[STDERR]: ${res.stderr.toString()}`)
     throw new Error(`Python-ly error. See output for "VSLilyPond: Formatter".`)
   }
+  outputChan.appendLine(`[LOG]: Formatting succeeded.`)
   return res.stdout.toString()
 }
 
