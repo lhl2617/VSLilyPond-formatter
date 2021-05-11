@@ -1,5 +1,8 @@
 # LilyPond Formatter
 
+[![Visual Studio Marketplace](https://vsmarketplacebadge.apphb.com/version-short/lhl2617.lilypond-formatter.svg)](https://marketplace.visualstudio.com/items?itemName=lhl2617.lilypond-formatter)
+[![Visual Studio Marketplace](https://vsmarketplacebadge.apphb.com/installs/lhl2617.lilypond-formatter.svg)](https://vsmarketplacebadge.apphb.com/installs/lhl2617.lilypond-formatter.svg)
+
 Provides `python-ly` formatting support for LilyPond files in VSCode.
 
 ## Requirements
