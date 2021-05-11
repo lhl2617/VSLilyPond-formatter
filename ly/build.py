@@ -30,9 +30,9 @@ DIST_PATH = os.path.join(LY_ROOT, f"dist-{PLATFORM}")
 if __name__ == "__main__":
     # Clean the build and dist paths if required
     if os.path.exists(BUILD_PATH):
-        os.rmdir(BUILD_PATH)
+        shutil.rmtree(BUILD_PATH)
     if os.path.exists(DIST_PATH):
-        os.rmdir(DIST_PATH)
+        shutil.rmtree(DIST_PATH)
 
     # Make a copy of python-ly/bin/ly to python-ly/python-ly
     shutil.copyfile(LY_BIN_PATH, PYTHON_LY_BIN_PATH)
