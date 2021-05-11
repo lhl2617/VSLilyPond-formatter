@@ -22,11 +22,18 @@
     "configuration": {
       "title": "LilyPond Formatter",
       "properties": {
+        "lilypondFormatter.general.useBundledPythonLy": {
+          "type": "boolean",
+          "default": true,
+          "group": "General",
+          "description": "Use the bundled `python-ly` installation instead of the one installed in the Python installation pointed by `lilypondFormatter.general.pathToPython`",
+          "scope": "resource"
+        },
         "lilypondFormatter.general.pathToPython": {
           "type": "string",
           "default": "python",
           "group": "General",
-          "description": "Path to `python` executable. Default (`python`) assumes python is in PATH variables.",
+          "description": "Path to `python` executable with `python-ly`. Effectual only if `lilypondFormatter.general.useBundledPythonLy` is set to false. Default (`python`) assumes python is in PATH variables.",
           "scope": "resource"
         },
         "lilypondFormatter.general.reformatTimeout": {

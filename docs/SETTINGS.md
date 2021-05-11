@@ -4,9 +4,17 @@
 
 ## General
 
+### lilypondFormatter.general.useBundledPythonLy
+
+Use the bundled `python-ly` installation instead of the one installed in the Python installation pointed by `lilypondFormatter.general.pathToPython`
+
+Type: `boolean`
+
+Default value: `true`
+
 ### lilypondFormatter.general.pathToPython
 
-Path to `python` executable. Default (`python`) assumes python is in PATH variables.
+Path to `python` executable with `python-ly`. Effectual only if `lilypondFormatter.general.useBundledPythonLy` is set to false. Default (`python`) assumes python is in PATH variables.
 
 Type: `string`
 
