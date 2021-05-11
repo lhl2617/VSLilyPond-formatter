@@ -2,9 +2,6 @@
 import os
 import subprocess
 import shutil
-import sys
-
-PLATFORM = os.getenv("BUILD_PLATFORM", sys.platform)
 
 LY_ROOT = os.path.dirname(os.path.realpath(__file__))
 PYTHON_LY_ROOT = os.path.join(LY_ROOT, "python-ly")
@@ -14,7 +11,7 @@ LY_BIN_PATH = os.path.join(LY_BIN_DIR, "ly")
 PYTHON_LY_BIN_PATH = os.path.join(PYTHON_LY_ROOT, "python-ly")
 
 BUILD_PATH = os.path.join(LY_ROOT, "build")
-DIST_PATH = os.path.join(LY_ROOT, f"dist-{sys.platform}")
+DIST_PATH = os.path.join(LY_ROOT, "dist")
 
 if __name__ == "__main__":
     # Clean the build and dist paths if required
@@ -42,4 +39,5 @@ if __name__ == "__main__":
     # Clean the spec file
     os.remove(os.path.join(PYTHON_LY_ROOT, "python-ly.spec"))
 
+    print()
     

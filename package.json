@@ -40,11 +40,12 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile && npm run lint && npm run docs:gen",
+    "vscode:prepublish": "npm run bundle:check && npm run compile && npm run lint && npm run docs:gen",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "lint": "eslint src --ext ts",
-    "docs:gen": "ts-node ./src/docs-gen/main.ts"
+    "docs:gen": "ts-node ./src/docs-gen/main.ts",
+    "bundle:check": "ts-node ./src/bundle/check.ts"
   },
   "devDependencies": {
     "@types/command-exists": "^1.2.0",
