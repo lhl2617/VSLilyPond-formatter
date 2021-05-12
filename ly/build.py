@@ -23,11 +23,15 @@ PYTHON_LY_BIN_PATH = os.path.join(PYTHON_LY_ROOT, "python-ly")
 BUILD_PATH = os.path.join(LY_ROOT, "build")
 DIST_PATH = os.path.join(LY_ROOT, f"dist-{PLATFORM}")
 
-def cmd(x: str):
+
+def cmd(x: str, expected_return_code=0):
     print(f"$ {x}")
     ret = os.system(x)
-    if ret != 0:
-        raise Exception(f"Command '{x}' exited with code {ret}")
+    if ret != expected_return_code:
+        raise Exception(
+            f"Command '{x}' exited with code {ret}, expected {expected_return_code}"
+        )
+
 
 if __name__ == "__main__":
     # Clean the build and dist paths if required
@@ -68,7 +72,7 @@ if __name__ == "__main__":
         # Now replace the original binary
         cmd(f"mv -f {bin_path}.static {bin_path}")
         # Check static status
-        cmd(f"ldd {bin_path}")
+        cmd(f"ldd {bin_path}", 1)
 
     # Clean the created copy of python-ly/python-ly
     os.remove(PYTHON_LY_BIN_PATH)
