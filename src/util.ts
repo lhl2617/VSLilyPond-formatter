@@ -1,6 +1,6 @@
 import * as vscode from "vscode"
 import * as path from "path"
-import { extensionPath, platformPythonLyRelativePathMap } from "./consts"
+import { platformPythonLyRelativePathMap } from "./consts"
 
 // get configuration for a document
 export const getConfiguration = (doc: vscode.TextDocument) => {
@@ -16,13 +16,14 @@ export const outputChan = vscode.window.createOutputChannel(
   `VSLilyPond: Formatter`
 )
 
-export const getExecutablePath = (): string => {
+export const getExecutablePath = (context: vscode.ExtensionContext): string => {
+  const extensionRoot = context.extensionPath
   const relPath = platformPythonLyRelativePathMap.get(process.platform)
   if (relPath === undefined) {
     throw new Error(
       `Platform "${process.platform}" not supported: Please install python-ly and specify the right path to your installation in Settings.`
     )
   }
-  const absPath = path.join(extensionPath, relPath)
+  const absPath = path.join(extensionRoot, relPath)
   return absPath
 }
