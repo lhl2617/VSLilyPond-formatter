@@ -6,11 +6,7 @@ import sys
 
 # maps from sys.platform to GH-Actions friendly folder
 # https://docs.python.org/3/library/sys.html#sys.platform
-PLATFORM_DICT = {
-    "linux": "linux",
-    "darwin": "macos",
-    "win32": "windows",
-}
+PLATFORM_DICT = {"linux": "linux", "darwin": "macos", "win32": "windows"}
 
 PLATFORM = PLATFORM_DICT.get(sys.platform)
 
@@ -38,21 +34,33 @@ if __name__ == "__main__":
     shutil.copyfile(LY_BIN_PATH, PYTHON_LY_BIN_PATH)
 
     # now we run PyInstaller
-    subprocess.run([
-        "pyinstaller",
-        "python-ly",
-        "--onefile",
-        "--workpath",
-        BUILD_PATH,
-        "--distpath",
-        DIST_PATH
-    ], cwd=PYTHON_LY_ROOT)
+    subprocess.run(
+        [
+            "pyinstaller",
+            "python-ly",
+            "--onefile",
+            "--workpath",
+            BUILD_PATH,
+            "--distpath",
+            DIST_PATH,
+        ],
+        cwd=PYTHON_LY_ROOT,
+    )
 
     # Clean the created copy of python-ly/python-ly
     os.remove(PYTHON_LY_BIN_PATH)
     # Clean the spec file
     os.remove(os.path.join(PYTHON_LY_ROOT, "python-ly.spec"))
 
+    # Set 0755 permissions to built file
+    bin_path = (
+        os.path.join(DIST_PATH, "python-ly")
+        if PLATFORM != "windows"
+        else os.path.join(DIST_PATH, "python-ly.exe")
+    )
+    os.chmod(bin_path, 0o755)
+
     print("BUILT PATH:")
     print(DIST_PATH)
-    
+    print("BIN PATH:")
+    print(bin_path)
