@@ -12,7 +12,14 @@ const platformPythonLyRelativePathMap = {
 }
 
 Object.values(platformPythonLyRelativePathMap).forEach((binPath) => {
+  // Check existence
   if (!fs.existsSync(binPath)) {
     throw new Error(`"python-ly" bundle incomplete: Missing: ${binPath}`)
+  }
+  // Check permissions
+  try {
+    fs.accessSync(binPath, fs.constants.X_OK)
+  } catch (err) {
+    throw new Error(`File has no execute permission: ${binPath}`)
   }
 })
