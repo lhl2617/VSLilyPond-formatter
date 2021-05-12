@@ -24,6 +24,7 @@ BUILD_PATH = os.path.join(LY_ROOT, "build")
 DIST_PATH = os.path.join(LY_ROOT, f"dist-{PLATFORM}")
 
 def cmd(x: str):
+    print(f"$ {x}")
     ret = os.system(x)
     if ret != 0:
         raise Exception(f"Command '{x}' exited with code {ret}")
