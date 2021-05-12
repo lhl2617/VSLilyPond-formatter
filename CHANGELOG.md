@@ -1,5 +1,8 @@
 # Change Log
 
+## 0.2.2
+- Bundle binaries with correct file permissions.
+
 ## 0.2.1
 - Update documentation
 
