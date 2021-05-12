@@ -1,5 +1,10 @@
 # Change Log
 
+
+## 0.2.3
+- Fix #103
+- Build static binary for `python-ly` on Linux.
+
 ## 0.2.2
 - Bundle binaries with correct file permissions.
 

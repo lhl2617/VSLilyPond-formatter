@@ -26,7 +26,7 @@ DIST_PATH = os.path.join(LY_ROOT, f"dist-{PLATFORM}")
 
 def cmd(x: str, expected_return_code=0):
     print(f"$ {x}")
-    ret = os.system(x)
+    ret = os.system(x) % 255
     if ret != expected_return_code:
         raise Exception(
             f"Command '{x}' exited with code {ret}, expected {expected_return_code}"
