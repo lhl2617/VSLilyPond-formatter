@@ -73,11 +73,14 @@ const runReformatWithBundledPythonLy = (
   return handleLyCommandOutput(res)
 }
 
-export const runReformat = (doc: vscode.TextDocument): string => {
+export const runReformat = (
+  doc: vscode.TextDocument,
+  context: vscode.ExtensionContext
+): string => {
   const config = getConfiguration(doc)
   const timeoutMS = config?.general?.reformatTimeout ?? 10000
   if (config?.general?.useBundledPythonLy) {
-    const executablePath = getExecutablePath()
+    const executablePath = getExecutablePath(context)
     return runReformatWithBundledPythonLy(executablePath, doc, timeoutMS)
   } else {
     const pythonPath = getPythonPath(doc)
