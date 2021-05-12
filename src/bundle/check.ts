@@ -17,5 +17,7 @@ Object.values(platformPythonLyRelativePathMap).forEach((binPath) => {
     throw new Error(`"python-ly" bundle incomplete: Missing: ${binPath}`)
   }
   // Ensure permissions are correct
+  // We need to do this again here even after building it in Python,
+  // because GitHub Actions' artifacts doesn't preserve permissions.
   fs.chmodSync(binPath, 0o755)
 })
