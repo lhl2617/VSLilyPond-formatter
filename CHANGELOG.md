@@ -1,5 +1,7 @@
 # Change Log
 
+## 0.2.4
+- No changes (repository cleanup)
 
 ## 0.2.3
 - Fix #103
